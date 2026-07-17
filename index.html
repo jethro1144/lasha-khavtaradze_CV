@@ -100,9 +100,9 @@
   .logo { font-size: 24px; font-weight: 800; letter-spacing: -1px; margin-bottom: 40px; }
   .logo span { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   
-  .nav-links { display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%; }
+  .nav-links { display: flex; flex-direction: column; gap: 15px; align-items: center; width: 100%; }
   .nav-links a {
-    font-size: 13px; font-weight: 500; color: var(--text-low);
+    font-size: 12px; font-weight: 500; color: var(--text-low);
     transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1.5px;
     padding: 5px 0; text-align: center; width: 100%; position: relative;
   }
@@ -123,13 +123,13 @@
   @media(max-width: 900px) {
     .container { margin-left: auto; margin-right: auto; padding-bottom: 100px; }
     header { 
-      left: 50%; bottom: 20px; top: auto; transform: translateX(-50%); width: 90%; max-width: 500px; 
+      left: 50%; bottom: 20px; top: auto; transform: translateX(-50%); width: 95%; max-width: 600px; 
       animation: slideUpBottom 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
-    nav { flex-direction: row; padding: 15px 25px; border-radius: 50px; justify-content: space-between; }
+    nav { flex-direction: row; padding: 12px 20px; border-radius: 50px; justify-content: space-between; }
     .logo { display: none; }
     .nav-links { flex-direction: row; width: 100%; justify-content: space-between; gap: 0;}
-    .nav-links a { padding: 0; font-size: 11px; text-transform: none; letter-spacing: 1px; }
+    .nav-links a { padding: 0; font-size: 10px; text-transform: none; letter-spacing: 0.5px; }
     .nav-links a::after { display: none; }
     #progress-container { bottom: 100px; right: 20px; transform: scale(0.8); }
     .scroll-indicator { display: none; }
@@ -145,7 +145,7 @@
   .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 3px; background: var(--gradient-text); border-radius: 2px; }
   .mono-sub { font-family: var(--font-mono); font-size: 13px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
 
-  /* HERO SECTION (Staggered Load) */
+  /* HERO SECTION */
   .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 50px; }
   .hero-content { max-width: 800px; perspective: 1000px; }
   
@@ -155,12 +155,22 @@
   .hero-anim:nth-child(3) { animation-delay: 0.4s; }
   .hero-anim:nth-child(4) { animation-delay: 0.5s; }
   .hero-anim:nth-child(5) { animation-delay: 0.6s; }
+  .hero-anim:nth-child(6) { animation-delay: 0.7s; }
 
   @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-  .hero h1 { font-size: clamp(50px, 8vw, 90px); line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; }
+  .hero h1 { font-size: clamp(50px, 8vw, 90px); line-height: 1.1; margin-bottom: 10px; letter-spacing: -2px; }
   .hero h1 span { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero .role { font-size: clamp(20px, 3vw, 26px); color: var(--text-high); font-weight: 400; margin-bottom: 30px; }
+  
+  /* ATS-Friendly Contact Meta Line */
+  .contact-meta { 
+    display: flex; flex-wrap: wrap; gap: 20px; font-family: var(--font-mono); 
+    font-size: 13px; color: var(--text-low); margin-bottom: 30px; 
+  }
+  .contact-meta span, .contact-meta a { display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
+  .contact-meta a:hover { color: var(--primary); }
+  
+  .hero .role { font-size: clamp(20px, 3vw, 26px); color: var(--text-high); font-weight: 400; margin-bottom: 25px; }
   .hero p { font-size: 18px; margin-bottom: 40px; max-width: 600px; color: var(--text-med); font-weight: 300;}
   
   .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
@@ -170,7 +180,6 @@
     padding: 14px 28px; font-family: var(--font-main); font-weight: 600; font-size: 14px;
     border-radius: 50px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     transition: transform 0.2s ease-out, box-shadow 0.3s ease, background 0.3s;
-    /* Magnetic isolation */
     will-change: transform;
   }
   .btn-glow {
@@ -192,7 +201,7 @@
   .scroll-text { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--text-low); text-transform: uppercase; }
   @keyframes scrollWheel { 0% { top: 6px; opacity: 1; } 100% { top: 20px; opacity: 0; } }
 
-  /* DYNAMIC GLOW EFFECT (Tracks Mouse) */
+  /* DYNAMIC GLOW EFFECT */
   .hover-glow {
     position: relative; overflow: hidden;
     background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);
@@ -203,17 +212,14 @@
     opacity: 0; transition: opacity 0.5s; z-index: 0; pointer-events: none;
   }
   .hover-glow:hover::before { opacity: 1; }
-  .hover-glow > * { position: relative; z-index: 1; } /* Keep content above glow */
+  .hover-glow > * { position: relative; z-index: 1; }
 
-  /* SKILLS & ARSENAL */
-  .section-pad { padding: 100px 0; }
+  /* SKILLS SECTION */
+  .section-pad { padding: 80px 0; }
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-  
   .skill-cat { margin-bottom: 30px; }
   .skill-cat h3 { font-family: var(--font-mono); font-size: 14px; color: var(--text-med); margin-bottom: 20px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px;}
-  
   .chips-wrapper { display: flex; flex-wrap: wrap; gap: 12px; }
-  
   .skill-chip {
     padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;
     color: var(--text-high); display: flex; align-items: center; gap: 8px;
@@ -222,13 +228,12 @@
   .skill-chip i { color: var(--primary); font-style: normal; font-family: var(--font-mono); }
   .skill-chip:hover { transform: translateY(-3px) scale(1.02); border-color: rgba(255, 94, 0, 0.4); }
 
-  /* EXPERIENCE JOURNEY */
+  /* TIMELINE */
   .timeline { position: relative; margin-top: 40px; }
   .timeline::before {
     content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 2px;
     background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
   }
-  
   .tl-node { position: relative; padding-left: 40px; margin-bottom: 50px; }
   .tl-node::before {
     content: ''; position: absolute; left: -6px; top: 5px; width: 14px; height: 14px; border-radius: 50%;
@@ -236,25 +241,20 @@
     box-shadow: 0 0 10px var(--primary); transition: transform 0.3s;
   }
   .tl-node:hover::before { transform: scale(1.4); background: var(--primary); }
-  
   .tl-content { border-radius: 16px; padding: 30px; transition: transform var(--transition-snappy), border-color var(--transition-snappy); }
   .tl-content:hover { transform: translateX(5px); border-color: rgba(255, 94, 0, 0.3); }
-  
   .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;}
   .tl-role { font-size: 20px; color: var(--text-high); line-height: 1.2; }
-  .tl-company { font-family: var(--font-mono); color: var(--secondary); font-size: 14px; }
-  .tl-date { font-family: var(--font-mono); font-size: 12px; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 20px;}
-  
+  .tl-company { font-family: var(--font-mono); color: var(--secondary); font-size: 14px; margin-top: 5px;}
+  .tl-date { font-family: var(--font-mono); font-size: 13px; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 20px;}
   .tl-list { list-style: none; padding: 0; margin-top: 15px; }
   .tl-list li { position: relative; padding-left: 20px; margin-bottom: 12px; color: var(--text-med); font-size: 15px; line-height: 1.6;}
   .tl-list li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); font-weight: bold; font-family: var(--font-mono);}
-
   .tl-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
   .tl-tag { font-size: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); padding: 4px 10px; border-radius: 6px; color: var(--text-med); font-weight: 500;}
 
   /* HIGHLIGHTS / PROJECTS */
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;}
-  
   .highlight-card { border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; transition: transform var(--transition-snappy); }
   .highlight-card:hover { transform: translateY(-5px); border-color: rgba(255, 94, 0, 0.3); }
   .highlight-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-high); }
@@ -271,15 +271,10 @@
 
   /* PREMIUM GLASSY 3D REVEAL */
   .reveal-blur {
-    opacity: 0;
-    filter: blur(15px);
-    transform: perspective(1000px) rotateX(-10deg) translateY(50px) scale(0.95);
-    transform-origin: center bottom;
-    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 0; filter: blur(15px); transform: perspective(1000px) rotateX(-10deg) translateY(50px) scale(0.95);
+    transform-origin: center bottom; transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .reveal-blur.active {
-    opacity: 1; filter: blur(0); transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
-  }
+  .reveal-blur.active { opacity: 1; filter: blur(0); transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1); }
 
 </style>
 </head>
@@ -301,8 +296,9 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#experience">Journey</a>
-      <a href="#highlights">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -315,6 +311,14 @@
     <div class="hero-content">
       <span class="mono-sub hero-anim">// System Diagnostics & Automation Integration</span>
       <h1 class="hero-anim">Lasha <br><span>Kavtaradze</span></h1>
+      
+      <!-- ATS Friendly Contact Meta Row -->
+      <div class="contact-meta hero-anim">
+        <span>📍 Gldani III Micro District, Tbilisi, Georgia</span>
+        <a href="mailto:l.qavtaradze13@gmail.com">✉ l.qavtaradze13@gmail.com</a>
+        <a href="tel:+995558756375">☎ (+995) 558-75-63-75</a>
+      </div>
+
       <div class="role hero-anim">QA Automation & AI Workflow Engineer</div>
       <p class="hero-anim">
         Specialized in transforming manual QA and operational processes into highly efficient, AI-assisted workflows. 
@@ -331,9 +335,9 @@
     </div>
   </section>
 
-  <!-- SKILLS & LANGUAGES -->
+  <!-- SKILLS -->
   <section id="skills" class="section-pad">
-    <h2 class="section-title reveal-blur">Technical Arsenal</h2>
+    <h2 class="section-title reveal-blur">Skills</h2>
     
     <div class="skills-grid">
       <div class="skill-cat reveal-blur">
@@ -377,12 +381,11 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- PROFESSIONAL EXPERIENCE -->
   <section id="experience" class="section-pad">
-    <h2 class="section-title reveal-blur">The Journey</h2>
+    <h2 class="section-title reveal-blur">Professional Experience</h2>
 
     <div class="timeline">
-      <!-- Job 1 -->
       <div class="tl-node reveal-blur">
         <div class="tl-content hover-glow">
           <div class="tl-header">
@@ -390,7 +393,7 @@
               <div class="tl-role">Troubleshooter & Log Analyst</div>
               <div class="tl-company">@ Skytel</div>
             </div>
-            <div class="tl-date">March 2023 — March 2025</div>
+            <div class="tl-date">March 2023 - March 2025</div>
           </div>
           <ul class="tl-list">
             <li>Executed end-to-end analysis of system logs and monitoring data to diagnose errors from subscriber devices to core architecture.</li>
@@ -405,7 +408,6 @@
         </div>
       </div>
 
-      <!-- Job 2 -->
       <div class="tl-node reveal-blur">
         <div class="tl-content hover-glow">
           <div class="tl-header">
@@ -413,7 +415,7 @@
               <div class="tl-role">QA Automation Engineer</div>
               <div class="tl-company">@ VTB Bank Georgia</div>
             </div>
-            <div class="tl-date">Jan 2022 — Aug 2022</div>
+            <div class="tl-date">January 2022 - August 2022</div>
           </div>
           <ul class="tl-list">
             <li>Designed and implemented automated testing frameworks for an online banking ecosystem using Java and Selenium WebDriver.</li>
@@ -428,7 +430,6 @@
         </div>
       </div>
 
-      <!-- Job 3 -->
       <div class="tl-node reveal-blur">
         <div class="tl-content hover-glow">
           <div class="tl-header">
@@ -436,7 +437,7 @@
               <div class="tl-role">IT Specialist</div>
               <div class="tl-company">@ Georgian Bar Association</div>
             </div>
-            <div class="tl-date">2020 — 2021</div>
+            <div class="tl-date">December 2020 - December 2021</div>
           </div>
           <ul class="tl-list">
             <li>Managed daily system maintenance, access controls, and crucial software updates for internal office equipment.</li>
@@ -448,11 +449,50 @@
           </div>
         </div>
       </div>
+
+      <div class="tl-node reveal-blur">
+        <div class="tl-content hover-glow">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Troubleshooter</div>
+              <div class="tl-company">@ Silknet</div>
+            </div>
+            <div class="tl-date">August 2019 - November 2020</div>
+          </div>
+          <ul class="tl-list">
+            <li>Analyzed technical errors on the subscriber and company side.</li>
+            <li>Resolved root-cause issues to improve overall telecommunications service quality and customer satisfaction.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Telecom</span>
+            <span class="tl-tag">Technical Support</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- HIGHLIGHTS -->
-  <section id="highlights" class="section-pad">
+  <!-- EDUCATION -->
+  <section id="education" class="section-pad">
+    <h2 class="section-title reveal-blur">Education</h2>
+    
+    <div class="timeline">
+      <div class="tl-node reveal-blur">
+        <div class="tl-content hover-glow">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Bachelor of Science in Information Technologies</div>
+              <div class="tl-company">@ Georgian Aviation University</div>
+            </div>
+            <div class="tl-date">September 2015 - July 2019</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section-pad">
     <h2 class="section-title reveal-blur">Key Projects</h2>
     <div class="grid-2">
       
@@ -488,7 +528,7 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section id="contact" class="section-pad">
     <h2 class="section-title reveal-blur">Get In Touch</h2>
     <div class="contact-box reveal-blur">
